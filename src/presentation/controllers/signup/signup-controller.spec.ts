@@ -1,6 +1,6 @@
-import { SignUpController } from './signup'
+import { SignUpController } from './signup-controller'
 import { MissingParamError, InternalServerError } from '../../errors'
-import { AddAccount, AddAccountModel, AccountModel, HttpRequest, Validation } from './signup-protocols'
+import { AddAccount, AddAccountModel, AccountModel, HttpRequest, Validation } from './signup-controller-protocols'
 import { successRequest, internalServerError, badRequest } from '../../helpers/http/http-helper'
 
 // sut = system under test
