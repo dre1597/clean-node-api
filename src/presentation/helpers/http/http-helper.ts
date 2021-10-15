@@ -5,6 +5,10 @@ export const badRequest = (error: Error): HttpResponse => (
   { statusCode: 400, body: error }
 )
 
+export const forbiddenError = (error: Error): HttpResponse => (
+  { statusCode: 403, body: error }
+)
+
 export const internalServerError = (error: Error): HttpResponse => (
   { statusCode: 500, body: new InternalServerError(error.stack) }
 )
