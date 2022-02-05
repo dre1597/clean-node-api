@@ -4,3 +4,4 @@ dist
 coverage
 requirements
 ./data
+jest.config.ts
