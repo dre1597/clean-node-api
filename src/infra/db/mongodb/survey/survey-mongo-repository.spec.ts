@@ -62,11 +62,12 @@ describe('Account Mongodb Repository', () => {
 
       expect(surveys).toBeInstanceOf(Array)
       expect(surveys.length).toBe(2)
+      expect(surveys[0].id).toBeTruthy()
       expect(surveys[0].question).toBe('any_question')
       expect(surveys[1].question).toBe('other_question')
     })
 
-    test('Should load all surveys on success', async () => {
+    test('Should load empty list', async () => {
       const sut = makeSut()
       const surveys = await sut.loadAll()
 
@@ -90,6 +91,7 @@ describe('Account Mongodb Repository', () => {
       const sut = makeSut()
       const survey = await sut.loadById(id)
       expect(survey).toBeTruthy()
+      expect(survey.id).toBeTruthy()
     })
   })
 })
