@@ -1,6 +1,6 @@
 import MockDate from 'mockdate'
 import { badRequest, internalServerError, noContent } from '@/presentation/helpers/http/http-helper'
-import { AddSurvey, AddSurveyModel, HttpRequest, Validation } from './add-survey-controller-protocols'
+import { AddSurvey, AddSurveyParams, HttpRequest, Validation } from './add-survey-controller-protocols'
 import { AddSurveyController } from './add-survey-controller'
 
 const makeFakeRequest = (): HttpRequest => ({
@@ -22,7 +22,7 @@ const makeValidation = (): Validation => {
 
 const makeAddSurvey = (): AddSurvey => {
   class AddSurveyStub implements AddSurvey {
-    async add (data: AddSurveyModel): Promise<void> {
+    async add (data: AddSurveyParams): Promise<void> {
       return new Promise(resolve => resolve())
     }
   }

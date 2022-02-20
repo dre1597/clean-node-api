@@ -1,13 +1,13 @@
 import { EmailInUseError, InternalServerError, MissingParamError } from '@/presentation/errors'
 import { badRequest, forbiddenError, internalServerError, successRequest } from '@/presentation/helpers/http/http-helper'
 import { SignUpController } from './signup-controller'
-import { AccountModel, AddAccount, AddAccountModel, Authentication, AuthenticationModel, HttpRequest, Validation } from './signup-controller-protocols'
+import { AccountModel, AddAccount, AddAccountParams, Authentication, AuthenticationParams, HttpRequest, Validation } from './signup-controller-protocols'
 
 // sut = system under test
 
 const makeAddAccount = (): AddAccount => {
   class AddAccountStub implements AddAccount {
-    async add (account: AddAccountModel): Promise<AccountModel> {
+    async add (account: AddAccountParams): Promise<AccountModel> {
       return await new Promise(resolve => resolve(makeFakeAccount()))
     }
   }
@@ -40,7 +40,7 @@ const makeFakeRequest = (): HttpRequest => ({
 
 const makeAuthentication = (): Authentication => {
   class AuthenticationStub implements Authentication {
-    async auth (authentication: AuthenticationModel): Promise<string> {
+    async auth (authentication: AuthenticationParams): Promise<string> {
       return new Promise(resolve => resolve('any_token'))
     }
   }
