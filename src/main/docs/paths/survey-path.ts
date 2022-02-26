@@ -29,5 +29,35 @@ export const surveyPath = {
         $ref: '#/components/serverError'
       }
     }
+  },
+  post: {
+    security: [{
+      apiKeyAuth: []
+    }],
+    tags: ['Enquetes'],
+    summary: 'API para criar uma enquete',
+    requestBody: {
+      content: {
+        'application/json': {
+          schema: {
+            $ref: '#/schemas/addSurveyParams'
+          }
+        }
+      }
+    },
+    responses: {
+      204: {
+        description: 'Sucesso'
+      },
+      403: {
+        $ref: '#/components/forbidden'
+      },
+      404: {
+        $red: '#/components/notFound'
+      },
+      500: {
+        $ref: '#/components/serverError'
+      }
+    }
   }
 }
