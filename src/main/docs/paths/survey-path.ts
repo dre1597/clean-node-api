@@ -16,11 +16,14 @@ export const surveyPath = {
           }
         }
       },
+      401: {
+        $ref: '#/components/unauthorized'
+      },
       403: {
         $ref: '#/components/forbidden'
       },
-      401: {
-        $ref: '#/components/unauthorized'
+      404: {
+        $red: '#/components/notFound'
       },
       500: {
         $ref: '#/components/serverError'
