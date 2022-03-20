@@ -8,7 +8,7 @@ import { LogControllerDecorator } from './log-controller-decorator'
 const makeController = (): Controller => {
   class ControllerStub implements Controller {
     async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
-      return new Promise(resolve => resolve(successRequest(mockAccountModel())))
+      return Promise.resolve(successRequest(mockAccountModel()))
     }
   }
   return new ControllerStub()
@@ -63,7 +63,7 @@ describe('LogController Decorator', () => {
 
     const logErrorSpy = jest.spyOn(logErrorRepositoryStub, 'logError')
 
-    jest.spyOn(controllerStub, 'handle').mockReturnValueOnce(new Promise(resolve => resolve(makeFakeServerError())))
+    jest.spyOn(controllerStub, 'handle').mockReturnValueOnce(Promise.resolve(makeFakeServerError()))
 
     await sut.handle(makeFakeRequest())
 
