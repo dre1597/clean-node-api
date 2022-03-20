@@ -1,4 +1,4 @@
-import { accountSchema, addSurveyParamsSchema, errorSchema, loginParamsSchema, saveSurveyParamsSchema, signUpParamsSchema, surveyAnswerSchema, surveySchema, surveysSchema, surveyResultSchema } from './schemas/'
+import { accountSchema, addSurveyParamsSchema, errorSchema, loginParamsSchema, saveSurveyParamsSchema, signUpParamsSchema, surveyAnswerSchema, surveySchema, surveysSchema, surveyResultSchema, surveyResultAnswerSchema } from './schemas/'
 
 export default {
   account: accountSchema,
@@ -10,5 +10,6 @@ export default {
   surveys: surveysSchema,
   addSurveyParams: addSurveyParamsSchema,
   saveSurveyParams: saveSurveyParamsSchema,
-  surveyResult: surveyResultSchema
+  surveyResult: surveyResultSchema,
+  surveyResultAnswer: surveyResultAnswerSchema
 }
